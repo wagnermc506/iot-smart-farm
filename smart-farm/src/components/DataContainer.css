@@ -1,0 +1,9 @@
+.DataContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Container {
+    background-color: blue;
+    color: white;
+}

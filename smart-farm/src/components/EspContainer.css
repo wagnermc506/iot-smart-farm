@@ -1,0 +1,11 @@
+.EspContainer {
+    width: 20en;
+    height: fit-content;
+    background-color: aqua;
+    text-align: center;
+}
+
+.Header {
+    width: 100%;
+    background-color: red;
+}
