@@ -1,4 +1,5 @@
 from asyncore import write
+from unittest.mock import DEFAULT
 from influxdb_client import InfluxDBClient, Point 
 from influxdb_client.client.write_api import SYNCHRONOUS
 
@@ -31,10 +32,14 @@ class InfluxClient:
         return self.client
 
 
-# tables = query_api.query('from(bucket:"smart-farm") |> range(start: -10m)')
+if __name__ == '__main__':
+    client = InfluxDBClient(url=DEFAULTS['host'], org=DEFAULTS['org'], token=DEFAULTS['token'])
+    query_api = client.query_api()
 
-# for table in tables:
-#     print(table)
-#     for row in table.records:
-#             print(row.values)
+    tables = query_api.query('from(bucket:"smart-farm") |> range(start: -30d)')
+
+    for table in tables:
+        print(table)
+        for row in table.records:
+                print(row.values)
 
